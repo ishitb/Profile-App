@@ -20,11 +20,11 @@ export default class Profile extends Component {
 
     render() {
         var cardArray = [];
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 15; i++) {
             cardArray = [...cardArray, i];
         }
 
-        var card100 = cardArray.map((i) => <Card key={i}/>);
+        var card100 = cardArray.map((i) => <Card key={i} />);
 
         return (
             <View style={styles.container}>
@@ -69,7 +69,15 @@ export default class Profile extends Component {
                     </ImageBackground>
                 </View>
                 <View style={styles.info}>
-                    <ScrollView>{card100}</ScrollView>
+                    <ScrollView
+                        style={{
+                            paddingHorizontal: 8,
+                        }}
+                        // persistentScrollbar={true}
+                        scrollBarThumbImage={{uri: "../assets/images/scroll.png"}}
+                    >
+                        {card100}
+                    </ScrollView>
                 </View>
             </View>
         );
@@ -111,7 +119,7 @@ const styles = StyleSheet.create({
     },
     info: {
         height: "60%",
-        paddingHorizontal: 13,
-        paddingVertical: 15
+        paddingHorizontal: 8,
+        paddingTop: 15,
     },
 });
