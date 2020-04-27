@@ -14,14 +14,18 @@ import Colors from "../constants/Colors";
 import Card from "./Card";
 
 export default class Profile extends Component {
-
-    card100 = () => {
-        return (
-            <Card />
-        )
-    }
+    state = {
+        cardArray: [],
+    };
 
     render() {
+        var cardArray = [];
+        for (var i = 0; i < 100; i++) {
+            cardArray = [...cardArray, i];
+        }
+
+        var card100 = cardArray.map((i) => <Card key={i}/>);
+
         return (
             <View style={styles.container}>
                 <View style={styles.imagebg}>
@@ -65,11 +69,7 @@ export default class Profile extends Component {
                     </ImageBackground>
                 </View>
                 <View style={styles.info}>
-                    <ScrollView>
-                        {
-                            this.card100()
-                        }
-                    </ScrollView>
+                    <ScrollView>{card100}</ScrollView>
                 </View>
             </View>
         );
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     },
     info: {
         height: "60%",
-        backgroundColor: Colors.defaultBack,
+        paddingHorizontal: 13,
+        paddingVertical: 15
     },
 });
