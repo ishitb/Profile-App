@@ -1,11 +1,26 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, ImageBackground } from "react-native";
+import {
+    Text,
+    StyleSheet,
+    View,
+    ImageBackground,
+    ScrollView,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 import Cover from "../assets/images/cover.jpg";
 import Colors from "../constants/Colors";
 
+import Card from "./Card";
+
 export default class Profile extends Component {
+
+    card100 = () => {
+        return (
+            <Card />
+        )
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -28,24 +43,33 @@ export default class Profile extends Component {
                                 <Feather name="menu" size={30} color="#fff" />
                                 <Text style={styles.proHead}>Profile</Text>
                             </View>
-                            <View style={styles.details}> 
-                                <Text style={styles.name}>
-                                    Edwina
-                                </Text>
-                                <Text style={styles.location}>
-                                    <Feather 
+                            <View style={styles.details}>
+                                <Text style={styles.name}>Edwina</Text>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Feather
                                         name="map-pin"
                                         size={20}
-                                        
+                                        color="#fff"
                                     />
+                                    <Text style={styles.location}>
                                         Banglore, India
-                                </Text>
+                                    </Text>
+                                </View>
                             </View>
                         </View>
                     </ImageBackground>
                 </View>
                 <View style={styles.info}>
-                    <Text></Text>
+                    <ScrollView>
+                        {
+                            this.card100()
+                        }
+                    </ScrollView>
                 </View>
             </View>
         );
@@ -61,9 +85,10 @@ const styles = StyleSheet.create({
     },
     bgIn: {
         paddingHorizontal: 20,
-        paddingVertical: 50,
+        paddingTop: 50,
+        paddingBottom: 30,
         height: "100%",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     proHead: {
         marginLeft: 20,
@@ -76,13 +101,16 @@ const styles = StyleSheet.create({
     },
     name: {
         color: "#fff",
-        fontSize: 25
+        fontSize: 25,
+        marginBottom: 5,
     },
     location: {
         color: "#fff",
-        fontSize: 18,
+        fontSize: 14,
+        marginLeft: 8,
     },
     info: {
         height: "60%",
+        backgroundColor: Colors.defaultBack,
     },
 });
