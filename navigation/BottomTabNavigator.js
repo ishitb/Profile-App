@@ -1,6 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as React from "react";
-import { DrawerLayoutAndroid, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+    DrawerLayoutAndroid,
+    View,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+} from "react-native";
 
 import TabBarIcon from "../components/TabBarIcon";
 import Profile from "../screens/Profile";
@@ -12,11 +18,15 @@ import { Feather } from "@expo/vector-icons";
 const BottomTab = createBottomTabNavigator();
 
 export default class BottomTabNavigator extends React.Component {
-
     constructor(props) {
-        super(props)
-        this.drawer = React.createRef()
+        super(props);
+        // this.drawer = React.createRef()
+        this.screen = React.createRef();
     }
+
+    state = {
+        currentRoute: "Profile",
+    };
 
     render() {
         return (
@@ -25,18 +35,18 @@ export default class BottomTabNavigator extends React.Component {
                 drawerWidth={350}
                 ref={this.drawer}
             >
-            <View
-                style={styles.header}
-            >
-                <TouchableOpacity
-                    onPress={() => {
-                        this.drawer.current.openDrawer()
-                    }}
-                >
-                    <Feather name="menu" size={30} color="#fff" />
-                </TouchableOpacity>
-                <Text style={styles.proHead}>Profile</Text>
-            </View>
+                <View style={styles.header}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            this.drawer.current.openDrawer();
+                        }}
+                    >
+                        <Feather name="menu" size={30} color="#fff" />
+                    </TouchableOpacity>
+                    <Text style={styles.proHead}>
+                        {this.state.currentRoute}
+                    </Text>
+                </View>
                 <BottomTab.Navigator
                     tabBarOptions={{
                         activeTintColor: Colors.tabIconSelected,
@@ -48,7 +58,7 @@ export default class BottomTabNavigator extends React.Component {
                             borderTopWidth: 0,
                             elevation: 0,
                             flexDirection: "row",
-                            alignItems: "center"
+                            alignItems: "center",
                         },
                         tabStyle: {
                             paddingTop: 0,
@@ -65,7 +75,7 @@ export default class BottomTabNavigator extends React.Component {
                     initialRouteName="Profile"
                 >
                     <BottomTab.Screen
-                        name="INBOX"
+                        name="Inbox"
                         component={Profile}
                         options={{
                             title: "inbox",
@@ -75,7 +85,7 @@ export default class BottomTabNavigator extends React.Component {
                         }}
                     />
                     <BottomTab.Screen
-                        name="SEARCH"
+                        name="Search"
                         component={Profile}
                         options={{
                             tabBarIcon: ({ focused }) => (
@@ -84,7 +94,7 @@ export default class BottomTabNavigator extends React.Component {
                         }}
                     />
                     <BottomTab.Screen
-                        name="REFER"
+                        name="Refer"
                         component={Profile}
                         options={{
                             tabBarIcon: ({ focused }) => (
@@ -100,9 +110,10 @@ export default class BottomTabNavigator extends React.Component {
                                 <TabBarIcon focused={focused} name="user" />
                             ),
                         }}
+                        ref={this.screen}
                     />
                     <BottomTab.Screen
-                        name="MORE"
+                        name="More"
                         component={Profile}
                         options={{
                             tabBarIcon: ({ focused }) => (
@@ -124,11 +135,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "flex-start",
         top: 50,
-        left: 20
+        left: 20,
     },
     proHead: {
         marginLeft: 20,
         fontSize: 25,
         color: "#fff",
     },
-})
+});
