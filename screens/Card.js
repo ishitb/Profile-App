@@ -10,51 +10,66 @@ import {
 export class Info extends Component {
     constructor(props) {
         super(props);
-        
-    this.state = {
-        title: props.title,
-        val: props.val,
-        focused: props.focused,
-        color: "#aaa"
-    };
-    }
 
+        this.state = {
+            title: props.title,
+            val: props.val,
+            focused: props.focused,
+            color: "#aaa",
+        };
+    }
 
     componentDidMount = () => {
         let props = this.props;
-        this.changeCol()
+        this.changeCol();
     };
 
     changeCol = () => {
-        this.state.focused == true ? this.setState({color: "#f36"}) : this.setState({color: "#aaa"})
+        this.state.focused == true
+            ? this.setState({ color: "#f36" })
+            : this.setState({ color: "#aaa" });
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            val: e
+        })
     }
 
     render() {
         return (
             <View style={styles.detail}>
-                <Text style={{ ...styles.title, color: this.state.color }}>
-                    {this.state.title}
-                </Text>
-
-                <TouchableWithoutFeedback
+                {/* <TouchableWithoutFeedback
                     onPress={() => {
                         this.setState({
                             focused: !this.state.focused,
                         });
-                        this.changeCol()
+                        this.changeCol();
                     }}
                 >
-                    <Text
-                        style={{
-                            ...styles.value,
-                            borderBottomColor: this.state.color,
-                        }}
-                    >
-                        {this.state.val}
-                    </Text>
-                </TouchableWithoutFeedback>
-                {/* <TextInput editable/> */}
-                {/* <TextInput value={this.state.val}/> */}
+                    <View> */}
+                        <Text style={{ ...styles.title, color: this.state.color }}>
+                            {this.state.title}
+                        </Text>
+    
+                        {/* <Text
+                            style={{
+                                ...styles.value,
+                                borderBottomColor: this.state.color,
+                            }}
+                        >
+                            {this.state.val}
+                        </Text> */}
+                        <TextInput
+                            value={this.state.val}
+                            onChangeText={this.handleChange}
+                            style={{
+                                ...styles.value,
+                                borderBottomColor: this.state.color,
+                            }}
+                        />
+                    {/* </View>
+                </TouchableWithoutFeedback> */}
             </View>
         );
     }
@@ -65,10 +80,14 @@ export default class Card extends Component {
         return (
             <View style={styles.card}>
                 <Text style={styles.heading}>About</Text>
-                <Info title="Current Title" val="" focused={true}/>
-                <Info title="Current Company" val="IBM India" focused={false}/>
-                <Info title="Total Years of Experience" val="10 Years" focused={false}/>
-                <Info title="Location" val="Bangalore, India" focused={false}/>
+                <Info title="Current Title" val="" focused={true} />
+                <Info title="Current Company" val="IBM India" focused={false} />
+                <Info
+                    title="Total Years of Experience"
+                    val="10 Years"
+                    focused={false}
+                />
+                <Info title="Location" val="Bangalore, India" focused={false} />
             </View>
         );
     }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -29,8 +29,8 @@ export default function App(props) {
         setInitialNavigationState(await getInitialState());
 
         // Load fonts
-        await Font.loadAsync({
-          ...Ionicons.font,
+        await Expo.Font.loadAsync({
+          ...Feather.font,
           'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         });
       } catch (e) {
