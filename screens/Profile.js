@@ -15,7 +15,6 @@ import Cover from "../assets/images/cover.jpg";
 import Colors from "../constants/Colors";
 
 import Card from "./Card";
-import Drawer from "./Drawer"
 import Details from "./Details"
 
 export default class Profile extends Component {
@@ -28,11 +27,7 @@ export default class Profile extends Component {
     state = {
         cardArray: [],
     };
-
-    drawer = () => {
-        this.drawerRef.current.openDrawer()
-    }
-
+    
     render() {
         var cardArray = [];
         for (var i = 0; i < 15; i++) {

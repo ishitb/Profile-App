@@ -20,7 +20,6 @@ export class Info extends Component {
     }
 
     componentDidMount = () => {
-        let props = this.props;
         this.changeCol();
     };
 
