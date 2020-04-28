@@ -76,8 +76,6 @@ export default class Profile extends Component {
                             style={{
                                 paddingHorizontal: 8,
                             }}
-                            // persistentScrollbar={true}
-                            scrollBarThumbImage={{uri: "../assets/images/scroll.png"}}
                         >
                             {card100}
                         </ScrollView>

@@ -26,7 +26,7 @@ export class Info extends Component {
 
     changeCol = () => {
         this.state.focused == true
-            ? this.setState({ color: "#f36" })
+            ? this.setState({ color: "#d08" })
             : this.setState({ color: "#aaa" });
     };
 
