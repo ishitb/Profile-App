@@ -30,6 +30,9 @@
       "package": "com.me.mine"
     },
     "sdkVersion": "37.0.0",
-    "description": ""
+    "description": "",
+    "androidNavigationBar": {
+      "visibile": "sticky-immersive"
+    }
   }
 }

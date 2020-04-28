@@ -20,8 +20,7 @@ const BottomTab = createBottomTabNavigator();
 export default class BottomTabNavigator extends React.Component {
     constructor(props) {
         super(props);
-        // this.drawer = React.createRef()
-        this.screen = React.createRef();
+        this.drawer = React.createRef()
     }
 
     state = {
@@ -110,7 +109,6 @@ export default class BottomTabNavigator extends React.Component {
                                 <TabBarIcon focused={focused} name="user" />
                             ),
                         }}
-                        ref={this.screen}
                     />
                     <BottomTab.Screen
                         name="More"

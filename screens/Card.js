@@ -59,14 +59,14 @@ export class Info extends Component {
                         >
                             {this.state.val}
                         </Text> */}
-                        {/* <TextInput
+                        <TextInput
                             value={this.state.val}
                             onChangeText={this.handleChange}
                             style={{
                                 ...styles.value,
                                 borderBottomColor: this.state.color,
                             }}
-                        /> */}
+                        />
                     {/* </View>
                 </TouchableWithoutFeedback> */}
             </View>
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: "#fff",
         padding: 40,
-        paddingBottom: 15,
-        marginBottom: 13,
+        paddingBottom: 35,
+        marginBottom: 17,
         justifyContent: "space-between",
         borderRadius: 20,
     },

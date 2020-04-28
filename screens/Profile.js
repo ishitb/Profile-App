@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.defaultBack,
     },
     imagebg: {
-        height: "40%",
+        height: "43%",
     },
     bgIn: {
         paddingHorizontal: 20,
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     },
 
     info: {
-        height: "60%",
+        height: "57%",
         paddingHorizontal: 8,
-        paddingTop: 15,
+        paddingTop: 20,
     },
 });
