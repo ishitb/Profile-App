@@ -1,23 +1,42 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as React from "react";
-import { DrawerLayoutAndroid } from "react-native";
+import { DrawerLayoutAndroid, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import TabBarIcon from "../components/TabBarIcon";
 import Profile from "../screens/Profile";
 import Drawer from "../screens/Drawer";
 
 import Colors from "../constants/Colors";
+import { Feather } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();
 
 export default class BottomTabNavigator extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.drawer = React.createRef()
+    }
+
     render() {
-        console.log("hello")
         return (
             <DrawerLayoutAndroid
                 renderNavigationView={Drawer}
                 drawerWidth={350}
+                ref={this.drawer}
             >
+            <View
+                style={styles.header}
+            >
+                <TouchableOpacity
+                    onPress={() => {
+                        this.drawer.current.openDrawer()
+                    }}
+                >
+                    <Feather name="menu" size={30} color="#fff" />
+                </TouchableOpacity>
+                <Text style={styles.proHead}>Profile</Text>
+            </View>
                 <BottomTab.Navigator
                     tabBarOptions={{
                         activeTintColor: Colors.tabIconSelected,
@@ -96,3 +115,20 @@ export default class BottomTabNavigator extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    header: {
+        zIndex: 99,
+        position: "absolute",
+        flexDirection: "row",
+        alignItems: "center",
+        alignSelf: "flex-start",
+        top: 50,
+        left: 20
+    },
+    proHead: {
+        marginLeft: 20,
+        fontSize: 25,
+        color: "#fff",
+    },
+})

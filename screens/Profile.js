@@ -7,7 +7,7 @@ import {
     ScrollView,
     TextInput,
     TouchableOpacity,
-    DrawerLayoutAndroid
+    DrawerLayoutAndroid,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -15,19 +15,18 @@ import Cover from "../assets/images/cover.jpg";
 import Colors from "../constants/Colors";
 
 import Card from "./Card";
-import Details from "./Details"
+import Details from "./Details";
 
 export default class Profile extends Component {
-
     constructor(props) {
-        super(props)
-        this.drawerRef = React.createRef()
+        super(props);
+        this.drawerRef = React.createRef();
     }
 
     state = {
         cardArray: [],
     };
-    
+
     render() {
         var cardArray = [];
         for (var i = 0; i < 15; i++) {
@@ -37,45 +36,33 @@ export default class Profile extends Component {
         var card100 = cardArray.map((i) => <Card key={i} />);
 
         return (
-                <View style={styles.container}>
-                    <View style={styles.imagebg}>
-                        <ImageBackground
-                            source={Cover}
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                            }}
-                        >
-                            <View style={styles.bgIn}>
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        alignItems: "center",
-                                        alignSelf: "flex-start",
-                                    }}
-                                >
-                                    <TouchableOpacity
-                                    >
-                                    	<Feather name="menu" size={30} color="#fff" />
-                                    </TouchableOpacity>
-                                    <Text style={styles.proHead}>Profile</Text>
-                                </View>
-                                    <View style={styles.details}>
-                                        <Details mode="default" />
-                                    </View>
+            <View style={styles.container}>
+                <View style={styles.imagebg}>
+                    <ImageBackground
+                        source={Cover}
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                        }}
+                    >
+                        <View style={styles.bgIn}>
+                            {/* <Header /> */}
+                            <View style={styles.details}>
+                                <Details mode="default" />
                             </View>
-                        </ImageBackground>
-                    </View>
-                    <View style={styles.info}>
-                        <ScrollView
-                            style={{
-                                paddingHorizontal: 8,
-                            }}
-                        >
-                            {card100}
-                        </ScrollView>
-                    </View>
+                        </View>
+                    </ImageBackground>
                 </View>
+                <View style={styles.info}>
+                    <ScrollView
+                        style={{
+                            paddingHorizontal: 8,
+                        }}
+                    >
+                        {card100}
+                    </ScrollView>
+                </View>
+            </View>
         );
     }
 }
@@ -93,11 +80,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         height: "100%",
         justifyContent: "space-between",
-    },
-    proHead: {
-        marginLeft: 20,
-        fontSize: 25,
-        color: "#fff",
+        flexDirection: "row"
     },
     details: {
         alignSelf: "flex-end",

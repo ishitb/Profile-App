@@ -59,14 +59,14 @@ export class Info extends Component {
                         >
                             {this.state.val}
                         </Text> */}
-                        <TextInput
+                        {/* <TextInput
                             value={this.state.val}
                             onChangeText={this.handleChange}
                             style={{
                                 ...styles.value,
                                 borderBottomColor: this.state.color,
                             }}
-                        />
+                        /> */}
                     {/* </View>
                 </TouchableWithoutFeedback> */}
             </View>
