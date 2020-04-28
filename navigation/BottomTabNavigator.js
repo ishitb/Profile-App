@@ -12,6 +12,7 @@ const BottomTab = createBottomTabNavigator();
 
 export default class BottomTabNavigator extends React.Component {
     render() {
+        console.log("hello")
         return (
             <DrawerLayoutAndroid
                 renderNavigationView={Drawer}

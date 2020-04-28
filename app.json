@@ -27,6 +27,8 @@
     },
     "androidNavigationBar": {
       "visible": "sticky-immersive"
-    }
+    },
+    "sdkVersion": "37.0.0",
+    "description": ""
   }
 }
