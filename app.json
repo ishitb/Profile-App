@@ -25,8 +25,9 @@
     "ios": {
       "supportsTablet": true
     },
-    "androidNavigationBar": {
-      "visible": "sticky-immersive"
+    "android": {
+      "versionCode": 1,
+      "package": "com.me.mine"
     },
     "sdkVersion": "37.0.0",
     "description": ""
